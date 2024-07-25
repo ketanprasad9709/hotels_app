@@ -22,8 +22,7 @@ const app = express();
 app.use(express.json());
 dbconnect();
 
-const PORT = process.env.PORT || 3000;
-const HOST = process.env.HOST || '0.0.0.0';
+const PORT = 3000;
 
 
 
@@ -43,8 +42,8 @@ mongoose.connection.once("open", () => {
     console.log("connected to db");
     app.listen(process.env.PORT || PORT, () => {
         console.log("Server is running")
-    })
-})
+    });
+});
 
 
 
