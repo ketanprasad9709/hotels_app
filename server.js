@@ -22,7 +22,8 @@ const app = express();
 app.use(express.json());
 dbconnect();
 
-const PORT = 3000;
+//const PORT = 3000;
+const port = process.env.PORT || 3000;
 
 
 
@@ -40,7 +41,7 @@ app.use("/api/wishlist", wishlistRouter);
 
 mongoose.connection.once("open", () => {
     console.log("connected to db");
-    app.listen(process.env.PORT || PORT, () => {
+    app.listen(port, () => {
         console.log("Server is running")
     });
 });
