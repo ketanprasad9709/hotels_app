@@ -22,7 +22,7 @@ const deleteWishlistHandler = async (req, res) => {
 
 const getWishlistHandler = async (req, res) => {
     try{
-        const userID = req.headers.userID;
+        const userID = req.headers['userid'];
         const allwishlist = await wishlist.find({userID});
         res.json(allwishlist);
     }catch(err){
