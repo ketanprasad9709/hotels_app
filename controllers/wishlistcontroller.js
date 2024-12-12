@@ -22,7 +22,8 @@ const deleteWishlistHandler = async (req, res) => {
 
 const getWishlistHandler = async (req, res) => {
     try{
-        const allwishlist = await wishlist.find({});
+        const userID = req.headers.userID;
+        const allwishlist = await wishlist.find({userID});
         res.json(allwishlist);
     }catch(err){
         res.status(500).json({message: "wishlist not found"});
