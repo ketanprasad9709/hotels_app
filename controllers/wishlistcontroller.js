@@ -13,7 +13,8 @@ const createWishlistHandler = async (req, res) => {
 
 const deleteWishlistHandler = async (req, res) => {
     try{
-        await wishlist.findByIdAndDelete(req.params.id);
+        const userID = req.headers['userid'];
+        await wishlist.findOneAndDelete({hotelID: req.params.id, userID: userID});
         res.json({message: "hotel deleted from wishlist"});
     }catch(err){
         res.status(500).json({message: "unable to delete"});
