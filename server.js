@@ -8,7 +8,6 @@ const corsOptions ={
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
-app.use(cors(corsOptions));
 
 dotenv.config();
 
@@ -27,7 +26,7 @@ const dbconnect = require("./config/db_config");
 
 const app = express();
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use((req, res, next) => {
   // Allow cross-origin requests
   res.setHeader('Access-Control-Allow-Origin', '*');// Allow specific headers
