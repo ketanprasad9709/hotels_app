@@ -21,6 +21,12 @@ const dbconnect = require("./config/db_config");
 const app = express();
 
 app.use(cors());
+app.use((req, res, next) => {
+  // Allow cross-origin requests
+  res.setHeader('Access-Control-Allow-Origin', '*');// Allow specific headers
+  next();
+});
+
 app.use(express.json());
 dbconnect();
 
