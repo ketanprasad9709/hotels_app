@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 
 const corsOptions ={
-    origin:'https://hotel-app-frontend-301t.onrender.com', 
+    origin:['http://localhost:3000', 'https://hotel-app-frontend-301t.onrender.com', 'https://book-myhotel.netlify.app'],
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
